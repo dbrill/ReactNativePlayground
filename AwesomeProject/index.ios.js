@@ -4,6 +4,28 @@
  * @flow
  */
 
+/* Import / Export / Modules
+* Links:
+* http://exploringjs.com/es6/ch_modules.html
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export
+* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import
+*
+* Modules are stored in files. One module per file and one file per module
+* Two Types of Export
+* Named: Can export several different values. When importing that file/module, one can reference all those seperate values using the same names
+* Default: Only a single default export per module. This value is considered to be the "main" part of that particular file, since it is the only thing being exported
+*
+* Used to IMPORT functions, objects, or primitives that have been EXPORTED in a seperate module elsewhere
+*
+
+/
+* This double import is essentially importing the "main" functionality that is exported
+* From the module 'react' (exported by saying export default 'something') as well as importing
+* a named value that is also exported from the module 'react' (expoted by saying export function Component)
+* Something like (old import/export style, i think?):
+* const React = import('react')
+* const Component = React.Component
+*/
 import React, { Component } from 'react';
 import {
   AppRegistry,
