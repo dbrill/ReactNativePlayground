@@ -8,9 +8,36 @@ import React, { Component } from 'react';
 import {
   AppRegistry,
   StyleSheet,
+  Image,
   Text,
   View
 } from 'react-native';
+
+class Cage extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {showStuff: true};
+
+    setInterval(() => {
+      this.setState({ showStuff: !this.state.showStuff});
+    }, 3000);
+  }
+  render() {
+    if(this.state.showStuff){
+    return(
+      <View>
+      <Text>This is Nick Cage from {this.props.year}!</Text>
+      <Image source={{uri: this.props.url}} style={{width: 193, height:110}}/>
+      </View>
+    );
+  } else{
+    return(
+      <View>
+      </View>
+    );
+  }
+}
+}
 
 export default class AwesomeProject extends Component {
   render() {
@@ -26,10 +53,18 @@ export default class AwesomeProject extends Component {
           Press Cmd+R to reload,{'\n'}
           Cmd+D or shake for dev menu
         </Text>
+        <Cage year='1994' url='https://i.ytimg.com/vi/G8GVWhviw8s/hqdefault.jpg'/>
+        <Cage year='1995' url='https://i.ytimg.com/vi/G8GVWhviw8s/hqdefault.jpg'/>
+        <Cage year='1995'/>
       </View>
+
     );
   }
 }
+
+const pic = {
+  uri: 'https://i.ytimg.com/vi/G8GVWhviw8s/hqdefault.jpg'
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -49,5 +84,6 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
+
 
 AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject);
