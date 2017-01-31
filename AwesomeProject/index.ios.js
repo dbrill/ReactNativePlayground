@@ -36,6 +36,12 @@ import {
 } from 'react-native';
 
 class Cage extends Component{
+  /*
+  * https://facebook.github.io/react/docs/react-component.html
+  * Whenever implementing a constructor for a custom component, call super(props) first
+  * constructor is the right place to initialize state.
+  * If you don't need to initialize state or bind methods, you don't need to extend the constructor
+   */
   constructor(props) {
     super(props);
     this.state = {showStuff: true};
@@ -44,6 +50,10 @@ class Cage extends Component{
       this.setState({ showStuff: !this.state.showStuff});
     }, 3000);
   }
+  /*
+  * Shoud return a single React element. Reads this.state and this.props, returns element
+  * Should be pure: Shold not modify state, and should return the same result everytime it is called
+  */
   render() {
     if(this.state.showStuff){
     return(
